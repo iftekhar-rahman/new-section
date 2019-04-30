@@ -1,198 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Range Slider</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/jquery-ui.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
 
-        <title>Junction17</title>
-        
-        <!--Libraries-->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-
-        <!--Plugins-->
-        <link href="css/owl.carousel.min.css" rel="stylesheet">
-        <!-- <link href="css/ion.rangeSlider.skinModern.css" rel="stylesheet"> -->
-        <link href="css/jquery.nstSlider.min.css" rel="stylesheet">
-
-
-        <!--  default css -->
-        <link href="css/default.css" rel="stylesheet">
-        
-        <!--Core jQuery-->
-        <script src="js/jquery-1.12.4.min.js"></script>
-
-        <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-
-
-<!-- All CSS in Style tag -->
 <style>
-
-.header-container .container, .header-container .container-wrap, .header-container .container-wrap+.container-wrap, .header-container .row-fluid {
-    margin: 0 auto;
+.container {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1920px;
 }
-.u-float-left {
+.u-float-left{
     float: left;
+    padding-right: 10px;
 }
-.u-float-right {
+.u-float-right{
     float: right;
+    padding-left: 10px;
 }
-.row-fluid.row-dg187 {
-    float: left;
+.box-image img {
+    width: 100%;
+}
+.single-box {
+    position: relative;
+    margin-right: 5px;
+    width: 33.3333%;
+}
+
+.w50{
     width: 50%;
 }
 
-.row-fluid.row-qyzx7 {
-    float: right;
-    width: 50%;
-}
-
-.container-3zz9e .container-fluid {
-    overflow: hidden;
-}
-
-
-
-
-    /* ======finance-section-left-CSS======= */
-    .finance-section-left h2 {
-        font-size: 32px;
-        color: #1a1a1a;
-        line-height: 1.2;
-        font-weight: 400;
-    }
-
-    /* ======finance-section-right-CSS======= */
-    .finance-section-right ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-    }
-    .finance-section-right ul li {
-        width: 33.3333%;
-        margin-left: 5px;
-        position: relative;
-        transition: .5s;
-    }
-    .finance-section-right ul li:first-child {
-        margin-left: 0;
-    }
-    .finance-section-right ul li a {
-        display: block !important;
-        color: #fff;
-        transition: .5s;
-    }
-    .finance-section-right ul li a span {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        text-align: center;
-        background-color: #1693a5;
-        padding: 8px 0;
-        z-index: 3;
-        transition: .3s;
-    }
-    .finance-section-right ul li:hover a:after {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        content: "";
-        z-index: 1;
-        opacity: .5;
-        transition: .3s;
-    }
-    .finance-section-right ul li:hover a span {
-        padding: 14px 0;
-    } 
-    .budget-slider {
-        position: relative;
-    }
-  
-    
 </style>
 
-
-
-<div class="container-3zz9e mt-0 pt-2 pb-2 container--max-1366 pt-4@sm  container-wrap">
-    <div class="container-fluid">
-        <div class="row-fluid row-dg187">
-            <div class="custom-html module u-width-reset u-float-left">
-                <div class="finance-section-left">
-                    <h2>Our finance team can help you get the best finance deal based on your budget</h2>
-                    <div class="nstSlider" data-range_min="150" data-range_max="127" 
-                    data-cur_min="0">
-                        <div class="leftGrip"></div>
+    <div class="container-3zz9e mt-0 pt-2 pb-2 container--max-1366 pt-4@sm  container-wrap">
+        <div class="container">
+            <div class="row-fluid row-dg187">
+                <div class="custom-html module w50 u-width-reset u-float-left">
+                    <div class="budget-slider">
+                        <p class="text">Our finance team can help you get the best finance deal based on your budget</p>
+                        <p>
+                            <label for="amount" class="range-label">Monthly Budget:</label>
+                            <input class="range-label" type="text" id="amount" readonly style="border:0" value="200$">
+                        </p>
+                        <div id="slider-range-max"></div>
+                        <div class="range-submit text-right">
+                            <a href="#" class="submit-btn">Search</a>
+                        </div>
                     </div>
-                    <div class="leftLabel"> </div>
-                    <script>
-                        jQuery(document).ready(function($){
-
-                            $('.nstSlider').nstSlider({
-                                "left_grip_selector": ".leftGrip",
-                                "value_changed_callback": function(cause, leftValue, rightValue) {
-                                    $(this).parent().find('.leftLabel').text(leftValue);
-                                }
-                            });
-                        });
-                    </script>
-                </div><!-- .finance-section-left ends -->
+                </div>
             </div>
-        </div>
-        <div class="row-fluid row-qyzx7">
-            <div class="custom-html module u-width-reset u-float-right">
-                <div class="finance-section-right">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <img src="img/img-1.png" alt="">
-                                <span>Upto £200 p/m</span>
-                            </a>
-                        </li><!-- .li ends -->
-                        <li>
-                            <a href="#">
-                                <img src="img/img-2.png" alt="">
-                                <span>Upto £200 p/m</span>
-                            </a>
-                        </li><!-- .li ends -->
-                        <li>
-                            <a href="#">
-                                <img src="img/img-1.png" alt="">
-                                <span>Upto £200 p/m</span>
-                            </a>
-                        </li><!-- .li ends -->
-                    </ul><!-- .ul ends -->
-                </div><!-- .finance-section-right ends -->
+            <div class="row-fluid row-qyzx7">
+                <div class="custom-html module w50 u-width-reset u-float-right">
+                    <div class="car-box">
+                        <div class="single-box">
+                            <div class="box-image">
+                                <img src="./img/car-1.jpg" alt="">
+                            </div>
+                            <a href="" class="price-btn">Upto £200 p/m</a>
+                        </div>
+                        <div class="single-box">
+                            <div class="box-image">
+                                <img src="./img/car-2.jpg" alt="">
+                            </div>
+                            <a href="" class="price-btn">Upto £250 p/m</a>
+                        </div>
+                        <div class="single-box">
+                            <div class="box-image">
+                                <img src="./img/car-3.jpg" alt="">
+                            </div>
+                            <a href="" class="price-btn">Upto £300 p/m</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- <section class="pt-3 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 pb-5 pb-lg-0">
+                   <div class="budget-slider">
+                       <p class="text">Our finance team can help you get the best finance deal based on your budget</p>
+                    <p>
+                        <label for="amount" class="range-label">Monthly Budget:</label>
+                        <input class="range-label" type="text" id="amount" readonly style="border:0" value="200$">
+                    </p>
+                    <div id="slider-range-max"></div>
+                    <div class="range-submit text-right">
+                        <a href="#" class="submit-btn">Search</a>
+                    </div>
+                   </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="car-box">
+                        <div class="single-box">
+                            <div class="box-image">
+                                <img src="./img/car-1.jpg" alt="">
+                            </div>
+                            <a href="" class="price-btn">Upto £200 p/m</a>
+                        </div>
+                        <div class="single-box">
+                            <div class="box-image">
+                                <img src="./img/car-2.jpg" alt="">
+                            </div>
+                            <a href="" class="price-btn">Upto £250 p/m</a>
+                        </div>
+                        <div class="single-box">
+                            <div class="box-image">
+                                <img src="./img/car-3.jpg" alt="">
+                            </div>
+                            <a href="" class="price-btn">Upto £300 p/m</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section> -->
 
 
-
-
-
-
-
-        <!--Libraries-->
-        <script src="js/popper-1.1.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>       
-
-        <!--Plugins-->
-        <!-- <script src="js/ion.rangeSlider.min.js"></script> -->
-        <script src="js/jquery.nstSlider.min.js"></script>
-
-        <!--Active & Custom JS-->
-        <script src="js/tulsa-home.js"></script>
-    </body>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery-migrate.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/custom.js"></script>
+</body>
 </html>
