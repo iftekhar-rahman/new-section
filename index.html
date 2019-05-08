@@ -188,7 +188,6 @@
             font-weight: 700;
             margin: 0 0 10px 0;
             background: transparent;
-            display: inline-block;
         }
         .oc-budget-slider .range-label:focus{
             outline: none;
@@ -274,7 +273,7 @@
                         </div>
                         <div id="slider-range-max"></div>
                         <div class="oc-range-submit text-right">
-                            <a target="_blank" href="#" class="oc-submit-btn">Search</a>
+                            <a href="https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-min-price[]=200" class="oc-submit-btn" target="_blank">Search</a>
                         </div>
                     </div>
                 </div>
@@ -323,10 +322,10 @@
                 $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-max-price[]=" + urlVal );
 
                 } else if(urlVal > 250 ){
-                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-min-price[]=" + urlVal 
+                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-min-price[]="+ urlVal 
                 );
                 } else{
-                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-max-price[]=" + urlVal );
+                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-min-price[]=" + urlVal);
                 }
             }
             });
