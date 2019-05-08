@@ -188,6 +188,7 @@
             font-weight: 700;
             margin: 0 0 10px 0;
             background: transparent;
+            display: inline-block;
         }
         .oc-budget-slider .range-label:focus{
             outline: none;
@@ -266,14 +267,14 @@
                     <div class="oc-budget-slider">
                         <h3>Our finance team can help you get the best finance deal based on your budget</h3>
                         <div class="oc-range-label-texts">
-                            <div>
+                            <form action="" method="get">
                                 <label for="amount" class="range-label">Monthly Budget:</label>
-                                <input class="range-label rangeinput" type="text" id="amount" readonly style="border:0" value="200£">
-                            </div>
+                                <input class="range-label rangeinput" type="text" id="amount" readonly style="border:0" value="£200">
+                            </form>
                         </div>
                         <div id="slider-range-max"></div>
                         <div class="oc-range-submit text-right">
-                            <a href="#" class="oc-submit-btn">Search</a>
+                            <a target="_blank" href="#" class="oc-submit-btn">Search</a>
                         </div>
                     </div>
                 </div>
@@ -304,50 +305,6 @@
         </div>
     </div>
 
-    <!-- <section class="pt-3 pb-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 pb-5 pb-lg-0">
-                   <div class="oc-budget-slider">
-                       <p class="text">Our finance team can help you get the best finance deal based on your budget</p>
-                    <p>
-                        <label for="amount" class="range-label">Monthly Budget:</label>
-                        <input class="range-label" type="text" id="amount" readonly style="border:0" value="200$">
-                    </p>
-                    <div id="slider-range-max"></div>
-                    <div class="oc-range-submit text-right">
-                        <a href="#" class="oc-submit-btn">Search</a>
-                    </div>
-                   </div>
-
-                </div>
-                <div class="col-lg-6">
-                    <div class="oc-car-box">
-                        <div class="oc-single-box">
-                            <div class="box-image">
-                                <img src="./img/car-1.jpg" alt="">
-                            </div>
-                            <a href="" class="oc-price-btn">Upto £200 p/m</a>
-                        </div>
-                        <div class="oc-single-box">
-                            <div class="box-image">
-                                <img src="./img/car-2.jpg" alt="">
-                            </div>
-                            <a href="" class="oc-price-btn">Upto £250 p/m</a>
-                        </div>
-                        <div class="oc-single-box">
-                            <div class="box-image">
-                                <img src="./img/car-3.jpg" alt="">
-                            </div>
-                            <a href="" class="oc-price-btn">Upto £300 p/m</a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section> -->
-
 
     <script src="https://code.jquery.com/jquery-3.4.0.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
@@ -360,16 +317,16 @@
             max: 40,
             value: 8,
             slide: function( event, ui ) {
-                $( "#amount" ).val( ui.value * 25 +"£" );
+                $( "#amount" ).val( "£" + ui.value * 25 );
                 var urlVal = ui.value * 25;
                 if(urlVal >= 200 && urlVal <= 250 ){
-                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-max-price[]=200"
-                );
+                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-max-price[]=" + urlVal );
+
                 } else if(urlVal > 250 ){
-                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-min-price[]=300"
+                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-min-price[]=" + urlVal 
                 );
                 } else{
-                $('.oc-submit-btn').attr("href", "#");
+                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-max-price[]="+ urlVal );
                 }
             }
             });
