@@ -9,286 +9,349 @@
 </head>
 <body>
 
-<!-- ===================================================
-    All the CSS is in Style tag for Finance Section
-====================================================== -->
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-.finance-section{
-    padding: 60px 0;
-}
-.container {
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-}
 
-.u-float-left{
-    float: left;
-    padding-right: 10px;
-}
-.u-float-right{
-    float: right;
-    padding-left: 10px;
-}
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,900');
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{
+           font-family: 'Montserrat', sans-serif;
+        }
+        .finance-section{
+            padding: 60px 0;
+        }
+        .container-oc {
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        /* .u-float-left{
+            float: left;
+            padding-right: 10px;
+        }
+        .u-float-right{
+            float: right;
+            padding-left: 10px;
+        } */
+        
+        
+        /* ===========-car-images=============== */
+        /* .box-image-1{background-image: url(img/car-1.jpg)}
+        .box-image-2{background-image: url(img/car-2.jpg)}
+        .box-image-3{background-image: url(img/car-3.jpg)} */
+        /* .box-image{
+            background-size: cover;
+            background-position: center -29px;
+            background-color: #ddd;
+            height: 266px;
+        } */
+        
+        
+        
+        
+        .box-image img {
+            width: 100%;
+        }
+        .section-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        .oc-price-btn {
+            position: absolute;
+            left: 0;
+            bottom: 0px;
+            font-size: 14px;
+            position: absolute;
+            background: #000;
+            padding: 10px 5px;
+            color: #fff;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+            text-align: center;
+            transition: .4s;
+            text-decoration: none;
+        }
+        /* ========.oc-submit-btn ============== */
+        .oc-submit-btn {
+            min-width: 180px;
+            color: #fff;
+            border-color: #646464;
+            background-color: #646464;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            padding: 12px 25px;
+            line-height: 1;
+            text-shadow: none;
+            box-shadow: none;
+            margin-top: 20px;
+            transition: all .3s linear;
+            display: inline-block;
+            text-align: center;
+            border-radius: 2px;
+            margin-left: auto;
+            cursor: pointer;
+            transition: .4s;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 0;
+            font-weight: 300;
+        }
+        .oc-submit-btn:hover{
+            text-decoration: none;
+            color: #000;
+            background-color: #fff;
+            border-color: #646464;
+        }
+        .oc-car-box {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 100%;
+            justify-content: center;
+        }
+        .oc-single-box {
+            position: relative;
+            margin-right: 5px;
+            width:calc(33.3333% - 5px);
+            
+        }
+        
+        
+        @media screen and (max-width: 575px) {
+            .oc-single-box {
+                position: relative;
+                margin-right: 5px;
+                width: auto;
+                min-width:157px;
+                margin-bottom:10px;
+            }
+        }
+        .oc-single-box:hover .oc-price-btn {
+            padding: 15px 5px;
+            color: #fff;
+            text-decoration: none;
+        
+        }
+        .oc-single-box:before {
+            content: '';
+            background-color: #1a1a1aa1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: .4s;
+        }
+        .oc-single-box:hover:before {
+            opacity: 1;
+        }
+        .oc-range-submit.text-right {
+            text-align: right;
+        }
+        
+        
+        /* Range Slider */
+        .oc-budget-slider{
+            color: #fff;
+            
+        }
+        .oc-budget-slider h3 {
+            font-family: Montserrat,Arial,Verdana,Helvetica,sans-serif;
+            font-size: 26px;
+            line-height: 1.2;
+            color: inherit;
+            margin: 0 0 20px 0;
+            font-weight: 600;
+        }
+        .oc-budget-slider .range-label {
+            margin: 0 10px 10px 0;
+            padding: 0;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 31px;
+            display: inline-block;
+            cursor: pointer;
+            color: #ace8f3;
+        }
+        .oc-budget-slider .range-label.rangeinput {
+            font-size: 26px;
+            color: #fff;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            background: transparent;
+        }
+        .oc-budget-slider .range-label:focus{
+            outline: none;
+            box-shadow: none;
+        }
+        
+        .oc-budget-slider .ui-slider-handle {
+            width: 28px;
+            height: 28px;
+            top: -7px!important;
+            margin-left: -14px!important;
+        }
+        .oc-budget-slider .ui-state-default {
+            border: none;
+            background: #568891;
+            border-radius: 50px;
+        }
+        .oc-budget-slider  .ui-slider-horizontal .ui-slider-range-max {
+            border-radius: 50px;
+        }
+        .oc-budget-slider .ui-state-default:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        .oc-budget-slider .ui-widget.ui-widget-content {
+            border: none;
+            background: #ace8f3;
+            border-radius: 50px;
+        }
+        .oc-row-flex{
+            display:flex;
+            flex-wrap:wrap;
+            margin-left:-15px;
+            margin-right:-15px;
+        }
+        .oc-flex-md-50{
+            flex: 0 0 100%;
+            padding-left:15px;
+            padding-right:15px;
+            margin-bottom: 30px;
+        }
+      
+        
+        @media screen and (min-width: 992px) {
+            .oc-flex-md-50{
+                flex: 0 0 50%;
+                margin-bottom: 0px;
+            }
+            .oc-align-items-center{
+                align-items: center;
+            }
+        }
+        .bg-black{
+            background: #212121;
+        }
+        .oc-range-label-texts{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .oc-range-label-texts div{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .oc-range-label-texts .rangeinput{
+            display: flex;
+            flex-wrap: wrap;
+            width: 20%;
+        }
+        </style>
 
-
-/* ===========-car-images=============== */
-.box-image-1{background-image: url(img/car-1.jpg)}
-.box-image-2{background-image: url(img/car-2.jpg)}
-.box-image-3{background-image: url(img/car-3.jpg)}
-.box-image{
-    background-size: cover;
-    background-position: center -29px;
-    background-color: #ddd;
-    height: 266px;
-}
-
-
-
-
-.box-image img {
-    width: 100%;
-}
-.section-wrapper {
-    display: flex;
-    justify-content: space-between;
-}
-.price-btn {
-    position: absolute;
-    left: 0;
-    bottom: 0px;
-    font-size: 14px;
-    position: absolute;
-    background: #1693a5;
-    padding: 10px 5px;
-    color: #fff;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    box-sizing: border-box;
-    text-align: center;
-    transition: .4s;
-    text-decoration: none;
-}
-/* ========.submit-btn ============== */
-.submit-btn {
-    min-width: 180px;
-    background: #1693a5;
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    padding: 12px 25px;
-    line-height: 1;
-    text-shadow: none;
-    box-shadow: none;
-    margin-top: 20px;
-    transition: all .3s linear;
-    display: inline-block;
-    text-align: center;
-    border-radius: 2px;
-    margin-left: auto;
-    cursor: pointer;
-    transition: .4s;
-    text-decoration: none;
-    font-family: Roboto,sans-serif;
-}
-.submit-btn:hover{
-    text-decoration: none;
-    color: #fff;
-    background: #1a1a1a;
-}
-.car-box {
-    display: flex;
-    flex-wrap: wrap;
-
-}
-.single-box {
-    position: relative;
-    margin-right: 5px;
-    width:calc(33.3333% - 5px);
-    
-}
-
-
-@media screen and (max-width: 575px) {
-    .single-box {
-        position: relative;
-        margin-right: 5px;
-        width: auto;
-        min-width:157px;
-        margin-bottom:10px;
-    }
-}
-.single-box:hover .price-btn {
-    padding: 15px 5px;
-    color: #fff;
-    text-decoration: none;
-
-}
-.single-box:before {
-    content: '';
-    background-color: #1a1a1aa1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: .4s;
-}
-.single-box:hover:before {
-    opacity: 1;
-}
-.range-submit.text-right {
-    text-align: right;
-}
-
-
-/* Range Slider */
-.budget-slider h3 {
-    font-family: Montserrat,Arial,Verdana,Helvetica,sans-serif;
-    font-weight: 300;
-    font-size: 32px;
-    line-height: 1.2;
-    color: #1a1a1a;
-    margin: 0 0 20px 0;
-}
-.budget-slider .range-label {
-    margin: 0 10px 10px 0;
-    padding: 0;
-    font-family: 'Roboto Slab',serif;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 31px;
-    display: inline-block;
-    cursor: pointer;
-    color: #1a1a1a;
-}
-.budget-slider .range-label.rangeinput {
-    font-size: 28px;
-    color: #1693a5;
-    font-weight: 700;
-    margin: 0 0 10px 0;
-}
-.budget-slider .range-label:focus{
-    outline: none;
-    box-shadow: none;
-}
-
-.budget-slider .ui-slider-handle {
-    width: 28px;
-    height: 28px;
-    top: -7px!important;
-    margin-left: -14px!important;
-}
-.budget-slider .ui-state-default {
-    border: none;
-    background: #1a1a1a;
-    border-radius: 50px;
-}
-.budget-slider  .ui-slider-horizontal .ui-slider-range-max {
-    border-radius: 50px;
-}
-.budget-slider .ui-state-default:focus {
-    outline: none;
-    box-shadow: none;
-}
-.budget-slider .ui-widget.ui-widget-content {
-    border: none;
-    background: #1693a5;
-    border-radius: 50px;
-}
-.row-flex{
-    display:flex;
-    flex-wrap:wrap;
-    margin-left:-15px;
-    margin-right:-15px;
-}
-.flex-md-50{
-    flex: 0 0 100%;
-    padding-left:15px;
-    padding-right:15px;
-    margin-bottom: 30px;
-}
-.dtable{
-    width: 100%;
-    height: 100%;
-    display: table;
-}
-.dtablecell{
-    height: 100%;
-    vertical-align: middle;
-    display: table-cell;
-}
-
-@media screen and (min-width: 768px) {
-    .flex-md-50{
-        flex: 0 0 50%;
-        margin-bottom: 0px;
-    }
-    
-}
-</style>
-
-    <!-- .finance-section html starts -->
-    <div class="finance-section">
-        <div class="container-3zz9e mt-0 pt-2 pb-2 container--max-1366 pt-4@sm  container-wrap">
-            <div class="container">
-                <div class="row-fluid row-dg187 row-flex">
-                    <div class="custom-html module w50 u-width-reset flex-md-50">
-                        <!-- .budget-range-slider starts -->
-                        <div class="budget-slider dtable">
-                            <div class="dtablecell">
-                                <h3>Our finance team can help you get the best finance deal based on your budget</h3>
+    <div class="finance-section bg-black">
+        <div class="container-oc">
+            <div class="oc-row-flex oc-align-items-center">
+                <div class="oc-flex-md-50">
+                    <div class="oc-budget-slider">
+                        <h3>Our finance team can help you get the best finance deal based on your budget</h3>
+                        <div class="oc-range-label-texts">
+                            <div>
                                 <label for="amount" class="range-label">Monthly Budget:</label>
-                                <input class="range-label rangeinput" type="text" id="amount" readonly style="border:0" value="£200">
-                                <div id="slider-range-max"></div>
-                                <div class="range-submit text-right">
-                                    <a href="#" class="submit-btn">Search</a>
-                                </div>
+                                <input class="range-label rangeinput" type="text" id="amount" readonly style="border:0" value="200£">
                             </div>
-                        </div><!-- .budget-range-slider ends -->
+                        </div>
+                        <div id="slider-range-max"></div>
+                        <div class="oc-range-submit text-right">
+                            <a href="#" class="oc-submit-btn">Search</a>
+                        </div>
                     </div>
-                    <div class="custom-html module w50 u-width-reset flex-md-50">
-                        <div class="car-box">
-                            <!-- .single-box starts -->
-                            <a href="#" title="Used cars for sale - up to £200p/m" class="single-box">
-                                <div class="box-image box-image-1"></div>
-                                <span class="price-btn">Upto £200 p/m</span>
-                            </a><!-- .single-box ends -->
-                            <!-- .single-box starts -->
-                            <a href="#" title="Used cars for sale - up to £250p/m" class="single-box">
-                                <div class="box-image box-image-2"></div>
-                                <span class="price-btn">Upto £250 p/m</span>
-                            </a><!-- .single-box ends -->
-                            <!-- .single-box starts -->
-                            <a href="#" title="Used cars for sale - over £300p/m" class="single-box">
-                                <div class="box-image box-image-3"></div>
-                                <span class="price-btn">£300 p/m Plus</span>
-                            </a>
-                            <!-- .single-box ends -->
+                </div>
+                <div class="oc-flex-md-50">
+                    <div class="oc-car-box">
+                        <div class="oc-single-box">
+                            <div class="box-image">
+                                <img src="./img/car-1.jpg" alt="">
+                            </div>
+                            <a href="" class="oc-price-btn">Upto £200 p/m</a>
+                        </div>
+                        <div class="oc-single-box">
+                            <div class="box-image">
+                                <img src="./img/car-2.jpg" alt="">
+                            </div>
+                            <a href="" class="oc-price-btn">Upto £250 p/m</a>
+                        </div>
+                        <div class="oc-single-box">
+                            <div class="box-image">
+                                <img src="./img/car-3.jpg" alt="">
+                            </div>
+                            <a href="" class="oc-price-btn">Upto £300 p/m</a>
                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
-    <!-- .finance-section html ends -->
-    
-    <!-- jquery-3.4.0.min.js CDN -->
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js" ></script>
-    <!-- jquery-migrate CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
-    <!-- jquery-ui.min.js CDN -->
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 
-    <!-- script starts -->
+    <!-- <section class="pt-3 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 pb-5 pb-lg-0">
+                   <div class="oc-budget-slider">
+                       <p class="text">Our finance team can help you get the best finance deal based on your budget</p>
+                    <p>
+                        <label for="amount" class="range-label">Monthly Budget:</label>
+                        <input class="range-label" type="text" id="amount" readonly style="border:0" value="200$">
+                    </p>
+                    <div id="slider-range-max"></div>
+                    <div class="oc-range-submit text-right">
+                        <a href="#" class="oc-submit-btn">Search</a>
+                    </div>
+                   </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="oc-car-box">
+                        <div class="oc-single-box">
+                            <div class="box-image">
+                                <img src="./img/car-1.jpg" alt="">
+                            </div>
+                            <a href="" class="oc-price-btn">Upto £200 p/m</a>
+                        </div>
+                        <div class="oc-single-box">
+                            <div class="box-image">
+                                <img src="./img/car-2.jpg" alt="">
+                            </div>
+                            <a href="" class="oc-price-btn">Upto £250 p/m</a>
+                        </div>
+                        <div class="oc-single-box">
+                            <div class="box-image">
+                                <img src="./img/car-3.jpg" alt="">
+                            </div>
+                            <a href="" class="oc-price-btn">Upto £300 p/m</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
     <script >
         $( document ).ready(function() {
             $( "#slider-range-max" ).slider({
@@ -297,23 +360,20 @@
             max: 40,
             value: 8,
             slide: function( event, ui ) {
-                $( "#amount" ).val( "£" + ui.value * 25  );
+                $( "#amount" ).val( ui.value * 25 +"£" );
                 var urlVal = ui.value * 25;
                 if(urlVal >= 200 && urlVal <= 250 ){
-                $('.submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-max-price[]=200"
+                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-max-price[]=200"
                 );
                 } else if(urlVal > 250 ){
-                $('.submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-min-price[]=300"
+                $('.oc-submit-btn').attr("href", "https://www.junction17cars.co.uk/stock/search/?finance[]=payment&payment-term[]=36&payment-deposit[]=2000&payment-annual-mileage[]=5000&payment-min-price[]=300"
                 );
                 } else{
-                $('.submit-btn').attr("href", "#");
+                $('.oc-submit-btn').attr("href", "#");
                 }
             }
             });
         });
     </script>
-    <!-- script ends -->
-
-
 </body>
 </html>
